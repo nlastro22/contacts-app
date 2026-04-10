@@ -19,8 +19,11 @@ export class Controls {
   isVisible = signal(false);
 
   onToggleButton(event: MatButtonToggleChange) {
-    if (event.value === 'all') this.filter.emit('all');
-    else if (event.value === 'fav') this.filter.emit('favorite');
+    if (event.value === 'all') {
+      this.filter.emit('all');
+    } else if (event.value === 'fav') {
+      this.filter.emit('favorite');
+    }
   }
 
   onFavoriteContacts() {

@@ -71,9 +71,13 @@ export class ContactDetails implements OnInit {
 
   initializeFormData() {
     this.id = this.route.snapshot.paramMap.get('id');
-    if (!this.id) return;
+    if (!this.id) {
+      return;
+    }
     this.contact = this.contactService.getContact(this.id);
-    if (!this.contact) return;
+    if (!this.contact) {
+      return;
+    }
 
     this.phoneNums.clear();
 
@@ -125,7 +129,9 @@ export class ContactDetails implements OnInit {
     }
 
     const data = this.form.getRawValue();
-    if (!this.contact) return;
+    if (!this.contact) {
+      return;
+    }
     this.contact = {
       id: this.contact.id,
       name: data.firstName,

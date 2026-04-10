@@ -81,7 +81,9 @@ export class ContactList implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result === true && contactId) this.contactService.deleteContact(contactId);
+      if (result === true && contactId) {
+        this.contactService.deleteContact(contactId);
+      }
     });
   }
 
@@ -103,11 +105,15 @@ export class ContactList implements OnInit {
   }
 
   showGroupLetter(i: number) {
-    if (i === 0) return true;
+    if (i === 0) {
+      return true;
+    }
     const currentContact = this.contacts()[i];
     const prevContact = this.contacts()[i - 1];
 
-    if (currentContact.name[0].toUpperCase() === prevContact.name[0].toUpperCase()) return false;
+    if (currentContact.name[0].toUpperCase() === prevContact.name[0].toUpperCase()) {
+      return false;
+    }
     return true;
   }
 }
