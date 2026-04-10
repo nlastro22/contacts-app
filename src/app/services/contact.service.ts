@@ -78,11 +78,11 @@ export class ContactService {
     }
   }
 
-  getLoginInformation() {
+  getLoginInformation(): boolean {
     const login = localStorage.getItem(this.LOGIN_KEY);
     if (login) {
       return JSON.parse(login);
     }
-    return null;
+    return false;
   }
 }
