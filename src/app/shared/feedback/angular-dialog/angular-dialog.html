@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>Obriši kontakt?</h2>
+<mat-dialog-content>Kontakt {{ data.name }} će biti obrisan.</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton mat-dialog-close>Odustani</button>
+  <button matButton [mat-dialog-close]="true" cdkFocusInitial>Obriši</button>
+</mat-dialog-actions>

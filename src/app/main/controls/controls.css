@@ -1,0 +1,70 @@
+.edit-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 0 1rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.contact-num-text {
+  font-size: 1.5rem;
+  width: 10rem;
+}
+
+mat-button-toggle {
+  font-size: 1.5rem;
+  width: 14rem;
+}
+
+.all-contacts-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--mat-sys-on-primary-container);
+}
+
+.container--add-filter {
+  position: relative;
+  width: 10rem;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sorting-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mat-sys-secondary-fixed);
+}
+
+.sort-container {
+  position: absolute;
+  top: 3.9rem;
+  right: 2rem;
+  font-size: 1.6rem;
+  background-color: white;
+  padding: 1rem;
+  width: 20rem;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.7rem 0;
+  z-index: 100;
+  border: 1px solid var(--mat-sys-outline-variant);
+  box-shadow: var(--mat-sys-level1);
+}
+
+.sort-container button {
+  padding: 0.4rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.sort-container button:hover {
+  color: var(--mat-sys-primary);
+}

@@ -1,0 +1,134 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.cdk-global-scrollblock {
+  overflow: auto !important;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  color: var(--mat-sys-on-secondary-fixed);
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.divider-nav {
+  width: 90%;
+  height: 3px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  border: none;
+}
+
+.icon {
+  color: var(--mat-sys-primary);
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: var(--mat-sys-on-primary-fixed-variant);
+}
+
+main {
+  width: 50%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  position: relative;
+  background-color: white;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.active {
+  display: flex;
+}
+
+.delete-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.favorites-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--mat-sys-tertiary);
+}
+
+.go-back-icon {
+  display: inline-block;
+  min-height: 3rem;
+  min-width: 3rem;
+  margin: 2rem 1rem;
+  z-index: 100;
+}
+
+input {
+  border: none;
+  width: 80%;
+  font-size: 1.5rem;
+}
+
+.input-error .input-messg {
+  display: block;
+}
+
+@media (max-width: 78em) {
+  html {
+    font-size: 54.25%;
+  }
+}
+
+@media (max-width: 68em) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media (max-width: 68em) {
+  main {
+    width: 60%;
+  }
+}
+
+@media (max-width: 48em) {
+  main {
+    width: 70%;
+  }
+}
+
+@media (max-width: 41em) {
+  main {
+    width: 85%;
+  }
+}
+
+@media (max-width: 35em) {
+  main {
+    width: calc(100% - 3.2rem);
+  }
+}

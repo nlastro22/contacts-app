@@ -1,0 +1,101 @@
+section {
+  width: 80%;
+  min-height: 48rem;
+  max-height: 82vh;
+  height: auto;
+  padding: 2.4rem;
+  border-radius: var(--mat-sys-corner-large);
+  box-shadow: var(--mat-sys-level2);
+}
+
+.close-icon {
+  margin-left: auto;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1.6rem;
+}
+
+p {
+  width: 49%;
+  margin: 0;
+}
+
+.form-input {
+  width: 100%;
+}
+
+.label {
+  font-size: 1.3rem;
+}
+
+p input,
+p textarea {
+  font-size: 1.5rem;
+}
+
+.telnums-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.add-number-container {
+  width: 15rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.add-number-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+.add-number-text {
+  font-size: 1.5rem;
+}
+
+.error {
+  font-size: 1.2rem;
+}
+
+.buttons {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 3.2rem;
+}
+
+@media (max-width: 94em) {
+  form,
+  .telnums-container {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  p {
+    width: 100%;
+  }
+}
+
+@media (max-width: 31em) {
+  section {
+    width: calc(100% - 3.2rem);
+  }
+}

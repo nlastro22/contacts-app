@@ -1,0 +1,67 @@
+.person-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  border: 1px solid #082a385b;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.card-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.person-card:hover {
+  background-color: #59839223;
+}
+
+.person-card div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+}
+
+.person-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.2rem;
+  height: 4.7em;
+  border-radius: 50%;
+  background-color: var(--mat-sys-primary);
+}
+
+.person-icon {
+  width: 2rem;
+  height: 2em;
+  color: var(--mat-sys-on-primary);
+}
+
+.person-name {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.person-num {
+  font-size: 2rem;
+  color: var(--mat-sys-secondary);
+  font-weight: 500;
+}
+@media (max-width: 30em) {
+  .person-num {
+    display: none;
+  }
+
+  .person-card div {
+    gap: 1.6rem;
+  }
+  .person-name {
+    font-size: 1.8rem;
+  }
+}

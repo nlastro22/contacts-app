@@ -1,0 +1,10 @@
+<nav>
+  <div class="logo">
+    <ion-icon class="logo-icon" name="call-outline"></ion-icon>
+    <h1>Kontakti</h1>
+  </div>
+  <app-search-bar></app-search-bar>
+  <div class="login">
+    <button (click)="onLoginBtn()">{{ isLoggedIn() ? 'Odjavi se' : 'Prijavi se' }}</button>
+  </div>
+</nav>

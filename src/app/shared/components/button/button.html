@@ -1,0 +1,10 @@
+<button
+  [style.color]="customColor() ? customColor() : ''"
+  [matButton]="btnType() === 'cancel' ? 'tonal' : 'filled'"
+  class="btn"
+>
+  @if (icon()) {
+    <mat-icon class="btn-icon">{{ icon() }}</mat-icon>
+  }
+  {{ title() }}
+</button>

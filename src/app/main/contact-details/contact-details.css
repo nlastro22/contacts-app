@@ -1,0 +1,112 @@
+section {
+  width: 80%;
+  min-height: 48rem;
+  max-height: 82vh;
+  height: auto;
+  padding: 2rem;
+  border-radius: var(--mat-sys-corner-large);
+  box-shadow: var(--mat-sys-level2);
+}
+.close-icon {
+  margin-left: auto;
+}
+
+.error-message span {
+  color: rgb(18, 23, 31);
+}
+
+.go-back-link {
+  font-size: 1.5rem;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1.6rem;
+}
+
+div {
+  width: 100%;
+}
+
+.form-input {
+  width: 49%;
+}
+
+.numbers-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  border: none;
+  flex-wrap: wrap;
+}
+
+.controls-group {
+  width: fit-content;
+  padding: 2.4rem;
+  font-size: 1.5rem;
+}
+
+.controls-group div {
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+
+.controls-group div:hover {
+  border-bottom: 1px solid #082a38;
+}
+
+.form-actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+.label {
+  font-size: 1.3rem;
+}
+
+form input,
+form textarea {
+  font-size: 1.5rem;
+}
+
+.error {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 94em) {
+  form,
+  .numbers-group {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .form-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 31em) {
+  section {
+    width: calc(100% - 3.2rem);
+  }
+}

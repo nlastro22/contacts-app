@@ -1,0 +1,38 @@
+div {
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.67rem;
+  border: none;
+  border-radius: 100px;
+  box-shadow: 0 8px 8px 2px #adadad17;
+  background-color: white;
+  color: #005763;
+}
+input {
+  width: 100%;
+  outline: none;
+}
+
+button {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 2.7rem;
+  height: 2.7rem;
+}
+.close-icon {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button.active {
+  visibility: visible;
+  opacity: 1;
+}

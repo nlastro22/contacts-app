@@ -1,0 +1,30 @@
+<app-controls
+  [contactNum]="contacts().length"
+  (sort)="onSortContacts($event)"
+  (filter)="onFilterChange($event)"
+></app-controls>
+<section class="container">
+  <div class="scroll-content">
+    @for (group of groupedContacts(); track group.letter) {
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ group.letter }}</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        @for (contact of group.items; track contact.id) {
+          <app-contact
+            [routerLink]="'/contacts/edit/' + contact.id"
+            (favourite)="onFavouriteContact($event)"
+            (delete)="onDeleteContact($event)"
+            [contact]="contact"
+          ></app-contact>
+        }
+      </mat-expansion-panel>
+    } @empty {
+      <p class="not-found">Nema pronađenih kontakta</p>
+    }
+  </div>
+  <button routerLink="/contacts/new-contact" class="add-contact-btn" matFab>
+    <mat-icon>add</mat-icon>
+  </button>
+</section>

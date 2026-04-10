@@ -1,0 +1,30 @@
+<div class="edit-list">
+  <p class="contact-num-text">
+    {{ contactNum() }} {{ contactNum() === 1 ? 'kontakt' : 'kontakta' }}
+  </p>
+  <p>
+    <mat-button-toggle-group
+      [hideSingleSelectionIndicator]="true"
+      name="fontStyle"
+      aria-label="Font Style"
+      value="all"
+      (change)="onToggleButton($event)"
+    >
+      <mat-button-toggle value="fav"
+        ><mat-icon class="favorites-icon">star</mat-icon> Favoriti
+      </mat-button-toggle>
+      <mat-button-toggle value="all">
+        <mat-icon class="all-contacts-icon">people</mat-icon> Svi kontakti</mat-button-toggle
+      >
+    </mat-button-toggle-group>
+  </p>
+  <div class="container--add-filter">
+    <button (click)="onSortingContacts()" class="sorting-btn" mat-icon-button>
+      <mat-icon class="icon">sort</mat-icon>
+    </button>
+    <div [style.display]="isVisible() ? 'flex' : 'none'" class="sort-container">
+      <button (click)="onSortAsc()">Sortiraj uzlazno (A-Ž)</button>
+      <button (click)="onSortDesc()">Sortiraj silazno (Ž-A)</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="blur-dialog">
+  <div class="confirmation-dialog">
+    <p class="confirmation-text">Jeste li sigurni da želite obrisati kontakt?</p>
+    <div class="confirmation-btns">
+      <app-button (click)="onCancel()" btnType="cancel" title="Odustani"></app-button>
+      <app-button
+        (click)="onConfirm()"
+        btnType="confirm"
+        btnClass="btn-confirm"
+        title="Da"
+      ></app-button>
+    </div>
+  </div>
+</div>

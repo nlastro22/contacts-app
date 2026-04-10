@@ -1,0 +1,18 @@
+<div>
+  <mat-icon>search</mat-icon>
+  <input
+    #searchInput
+    (input)="onSearchChange(searchInput.value)"
+    class="search-bar"
+    type="text"
+    placeholder="Pretraži kontakte..."
+  />
+
+  <button
+    (click)="searchInput.value = ''; onSearchChange('')"
+    [class.active]="searchInput.value"
+    mat-icon-button
+  >
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,33 @@
+<mat-card class="person-card" [routerLink]="['/contacts/edit', contact().id]">
+  <mat-card-content class="card-layout">
+    <div class="left-section">
+      <div class="person-profile">
+        <ion-icon class="person-icon" name="person"></ion-icon>
+      </div>
+      <span class="person-name">
+        {{ contact().name.length > 10 ? contact().name.substring(0, 1) + '.' : contact().name }}
+        {{
+          contact().lastName.length > 12
+            ? contact().lastName.substring(0, 7) + '...'
+            : contact().lastName
+        }}
+      </span>
+    </div>
+
+    <div class="right-section">
+      <span class="person-num">{{ contact().telNumber[0] | phone }}</span>
+
+      <div class="action-buttons">
+        <button mat-icon-button (click)="onDeleteClick($event)">
+          <ion-icon class="delete-icon" name="trash"></ion-icon>
+        </button>
+        <button mat-icon-button (click)="onFavouriteClick($event)">
+          <ion-icon
+            class="favorites-icon"
+            name="{{ contact().favorite === 1 ? 'star' : 'star-outline' }}"
+          ></ion-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

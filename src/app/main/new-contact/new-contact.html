@@ -1,0 +1,107 @@
+<section class="container">
+  <button routerLink="/contacts" class="icon close-icon" matIconButton>
+    <mat-icon>close</mat-icon>
+  </button>
+  <app-title title="Dodaj novi kontakt"></app-title>
+
+  <form [formGroup]="form">
+    <p>
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Ime</mat-label>
+        <input matInput type="text" placeholder="Unesite ime" formControlName="firstName" />
+        <mat-icon matSuffix>person</mat-icon>
+        @if (form.get('firstName')?.hasError('required')) {
+          <mat-error class="error">Ime je obavezno</mat-error>
+        }
+        @if (form.get('firstName')?.hasError('minlength')) {
+          <mat-error class="error">Ime mora imati minimalno 2 znaka</mat-error>
+        }
+        @if (form.get('firstName')?.hasError('maxlength')) {
+          <mat-error class="error">Ime ne smije biti dulje od 30 znakova</mat-error>
+        }
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Prezime</mat-label>
+        <input matInput type="text" placeholder="Unesite prezime" formControlName="lastName" />
+        <mat-icon matSuffix>person</mat-icon>
+        @if (form.get('lastName')?.hasError('required')) {
+          <mat-error class="error">Prezime je obavezno</mat-error>
+        }
+        @if (form.get('lastName')?.hasError('minlength')) {
+          <mat-error class="error">Prezime mora imati minimalno 2 znaka</mat-error>
+        }
+        @if (form.get('lastName')?.hasError('maxlength')) {
+          <mat-error class="error">Prezime predugo</mat-error>
+        }
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Adresa</mat-label>
+        <input matInput type="text" placeholder="Unesite adresu" formControlName="address" />
+        <mat-icon matSuffix>location_on</mat-icon>
+        @if (form.get('address')?.hasError('maxlength')) {
+          <mat-error class="error">Adresa ne može imati više od 100 znakova</mat-error>
+        }
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Bilješka</mat-label>
+        <textarea
+          matInput
+          type="text"
+          placeholder="Unesite bilješku"
+          formControlName="note"
+        ></textarea>
+        <mat-icon matSuffix>note</mat-icon>
+        @if (form.get('note')?.hasError('maxlength')) {
+          <mat-error class="error">Bilješka ne može imati više od 200 znakova</mat-error>
+        }
+      </mat-form-field>
+    </p>
+
+    <div class="telnums-container" formArrayName="telNumber">
+      @for (number of phoneNumbers.controls; track number) {
+        <p>
+          <mat-form-field class="form-input" appearance="outline">
+            <mat-label class="label">Telefonski broj {{ $index + 1 }}</mat-label>
+            <input
+              (input)="onTypingNumber($index)"
+              matInput
+              type="text"
+              placeholder="Unesite telefonski broj"
+              [formControlName]="$index"
+            />
+            <mat-icon matSuffix>phone</mat-icon>
+            @if ($index === 0 && number.hasError('required')) {
+              <mat-error class="error">Telefonski broj je obavezan</mat-error>
+            } @else if (number.hasError('hrPhoneValid')) {
+              <mat-error class="error">Broj je neispravan</mat-error>
+            }
+          </mat-form-field>
+        </p>
+      }
+    </div>
+
+    @if (newNum()) {
+      <button class="add-number-container" (click)="onAddPhoneNumber()">
+        <ion-icon class="icon add-number-icon" name="add-circle"></ion-icon>
+        <p class="add-number-text">Dodaj broj</p>
+      </button>
+    }
+  </form>
+  <div class="buttons">
+    <app-button routerLink="/" btnType="cancel" title="Odustani"></app-button>
+    <app-button (click)="onSubmit()" btnType="confirm" title="Spremi"></app-button>
+  </div>
+</section>
+
+<!-- @if (showMessage()) {
+  <app-notification text="Uspješno ste dodali kontakt"></app-notification>
+} -->

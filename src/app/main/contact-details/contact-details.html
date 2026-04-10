@@ -1,0 +1,80 @@
+@if (contact) {
+  <section class="container">
+    <button routerLink="/contacts" class="icon close-icon" matIconButton>
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <app-title title="Detalji kontakta"></app-title>
+
+    <form [formGroup]="form">
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Ime</mat-label>
+        <input matInput type="text" placeholder="Unesite ime" formControlName="firstName" />
+        <mat-icon matSuffix>person</mat-icon>
+        @if (form.get('firstName')?.hasError('required')) {
+          <mat-error class="error">Ime je obavezno</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Prezime</mat-label>
+        <input matInput type="text" placeholder="Unesite prezime" formControlName="lastName" />
+        <mat-icon matSuffix>person</mat-icon>
+        @if (form.get('lastName')?.hasError('required')) {
+          <mat-error class="error">Prezime je obavezno</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Adresa</mat-label>
+        <input matInput type="text" placeholder="Unesite adresu" formControlName="address" />
+        <mat-icon matSuffix>location_on</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="form-input" appearance="outline">
+        <mat-label class="label">Bilješka</mat-label>
+        <textarea matInput placeholder="Unesite bilješku" formControlName="note"></textarea>
+        <mat-icon matSuffix>description</mat-icon>
+      </mat-form-field>
+
+      <div class="numbers-group" formArrayName="telephoneNums">
+        @for (num of phoneNums.controls; track num) {
+          <mat-form-field class="form-input" appearance="outline">
+            <mat-label class="label">Telefonski broj {{ $index + 1 }}</mat-label>
+            <input matInput type="text" [formControlName]="$index" />
+            <mat-icon matSuffix>call</mat-icon>
+
+            @if ($index === 0 && num.hasError('required')) {
+              <mat-error class="error">Telefonski broj je obavezan</mat-error>
+            }
+          </mat-form-field>
+        }
+      </div>
+    </form>
+
+    @if (!showActionButtons()) {
+      <div class="form-actions">
+        <app-button (click)="onEditBtn()" icon="edit" title="Uredi" btnType="confirm"></app-button>
+        <app-button
+          (click)="onDeleteBtn()"
+          icon="delete"
+          title="Obriši"
+          customColor="#d62433"
+          btnType="cancel"
+        ></app-button>
+      </div>
+    }
+
+    @if (showActionButtons()) {
+      <div class="form-actions">
+        <app-button (click)="onCancelBtn()" title="Odustani" btnType="cancel"></app-button>
+        <app-button (click)="onSaveBtn()" title="Spremi" btnType="confirm"></app-button>
+      </div>
+    }
+  </section>
+} @else {
+  <app-not-found [title]="'Korisnik s id ' + id + ' ne postoji'"></app-not-found>
+}
+@if (showMessage()) {
+  <app-notification text="Podaci uspješno ažurirani"></app-notification>
+}
